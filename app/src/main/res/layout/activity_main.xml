@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Título do filme" />
+
+    <EditText
+        android:id="@+id/edtDirector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Diretor" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adicionar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMovies"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1" />
+    <Button
+        android:id="@+id/btnGoTasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir para Tarefas"
+        android:layout_marginTop="12dp"/>
+
+
+</LinearLayout>
