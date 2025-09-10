@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
 
-        <!-- TELA INICIAL -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,7 +21,6 @@
             </intent-filter>
         </activity>
 
-        <!-- TELA DE TAREFAS -->
         <activity
             android:name=".TaskActivity"
             android:exported="true"

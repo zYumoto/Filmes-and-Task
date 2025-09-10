@@ -1,41 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Título -->
     <EditText
-        android:id="@+id/edtTitle"
+        android:id="@+id/editTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Título do filme" />
+        android:hint="Título do filme"
+        android:inputType="text" />
 
+    <!-- Diretor -->
     <EditText
-        android:id="@+id/edtDirector"
+        android:id="@+id/editDirector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Diretor" />
+        android:hint="Diretor"
+        android:inputType="text" />
+
+    <!-- Rótulo Gêneros -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gêneros:"
+        android:paddingTop="8dp" />
+
+    <!-- Linha 1 de gêneros -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp">
+
+        <CheckBox
+            android:id="@+id/checkAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ação" />
+
+        <CheckBox
+            android:id="@+id/checkComedy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comédia"
+            android:layout_marginStart="16dp" />
+
+        <CheckBox
+            android:id="@+id/checkDrama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drama"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- Linha 2 de gêneros -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp">
+
+        <CheckBox
+            android:id="@+id/checkRomance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Romance" />
+
+        <CheckBox
+            android:id="@+id/checkTerror"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terror"
+            android:layout_marginStart="16dp" />
+
+        <CheckBox
+            android:id="@+id/checkAnimacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Animação"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- Avaliação -->
+    <TextView
+        android:id="@+id/textRatingValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avaliação: 5/10" />
+
+    <SeekBar
+        android:id="@+id/seekBarRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10"
+        android:progress="5" />
+
+    <!-- Botão Adicionar -->
 
     <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="match_parent"
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adicionar" />
+        android:text="Adicionar"
+        android:layout_marginTop="8dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMovies"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="12dp"
-        android:layout_weight="1" />
     <Button
-        android:id="@+id/btnGoTasks"
-        android:layout_width="match_parent"
+        android:id="@+id/buttonGoToTasks"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ir para Tarefas"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="8dp"/>
 
+
+    <!-- Lista -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMovies"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical" />
 
 </LinearLayout>

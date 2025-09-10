@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:padding="12dp"
+    android:background="@android:color/white"
+    android:layout_margin="6dp"
+    android:elevation="2dp">
 
     <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Título"
         android:textStyle="bold"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        tools:text="Matrix" />
 
     <TextView
-        android:id="@+id/tvDirector"
-        android:layout_width="match_parent"
+        android:id="@+id/textDirector"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Diretor"
-        android:textSize="14sp" />
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        tools:text="Wachowski" />
+
+    <TextView
+        android:id="@+id/textGenres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Gêneros: Ação, Drama, Comédia, Terror, Animação, Romance" />
+
+    <TextView
+        android:id="@+id/textRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Avaliação: 8/10" />
 </LinearLayout>

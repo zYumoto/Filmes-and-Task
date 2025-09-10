@@ -3,27 +3,43 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:padding="12dp"
+    android:layout_margin="6dp"
+    android:background="@android:color/white"
+    android:elevation="2dp">
 
     <TextView
-        android:id="@+id/tvTaskName"
-        android:layout_width="match_parent"
+        android:id="@+id/tvTaskTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome"
         android:textStyle="bold"
-        android:textSize="18sp" />
+        android:textSize="16sp"
+        android:text="Título" />
 
     <TextView
         android:id="@+id/tvTaskDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Descrição"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp" />
-
-    <Button
-        android:id="@+id/btnDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Concluir" />
+        android:text="Descrição da tarefa"
+        android:textColor="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/tvTaskStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Status: Pendente" />
+
+        <Button
+            android:id="@+id/btnToggleDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Concluir"/>
+    </LinearLayout>
 </LinearLayout>

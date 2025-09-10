@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Meus Filmes</string>
+    <string name="hint_title">Título do filme</string>
+    <string name="hint_director">Diretor</string>
+    <string name="button_add">Adicionar</string>
 </resources>

@@ -1,42 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/task_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/edtTaskName"
+        android:id="@+id/editTaskTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome da tarefa" />
+        android:hint="Título da tarefa"
+        android:inputType="text" />
 
     <EditText
-        android:id="@+id/edtTaskDesc"
+        android:id="@+id/editTaskDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Descrição" />
+        android:hint="Descrição"
+        android:inputType="textMultiLine"
+        android:minLines="2" />
 
     <Button
-        android:id="@+id/btnAddTask"
-        android:layout_width="match_parent"
+        android:id="@+id/buttonAddTask"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adicionar tarefa" />
+        android:text="Adicionar Tarefa"
+        android:layout_marginTop="8dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTasks"
+        android:id="@+id/recyclerViewTasks"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
-        android:layout_weight="1" />
-    <Button
-        android:id="@+id/btnBackMovies"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Voltar para Filmes"
-        android:layout_marginTop="12dp"/>
-
-
+        android:layout_weight="1"/>
 </LinearLayout>
-

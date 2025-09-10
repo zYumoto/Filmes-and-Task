@@ -12,50 +12,44 @@ import com.example.myapplication.model.Task
 
 class TaskAdapter(
     private val items: MutableList<Task>,
-    private val onToggleDone: (Task, Int) -> Unit
+    private val onToggle: (Task, Int) -> Unit
 ) : RecyclerView.Adapter<TaskAdapter.TaskVH>() {
 
-    inner class TaskVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvName: TextView = itemView.findViewById(R.id.tvTaskName)
-        val tvDesc: TextView = itemView.findViewById(R.id.tvTaskDesc)
-        val btnDone: Button = itemView.findViewById(R.id.btnDone)
+    class TaskVH(v: View) : RecyclerView.ViewHolder(v) {
+        val tvTitle: TextView = v.findViewById(R.id.tvTaskTitle)
+        val tvDesc: TextView = v.findViewById(R.id.tvTaskDesc)
+        val tvStatus: TextView = v.findViewById(R.id.tvTaskStatus)
+        val btnToggle: Button = v.findViewById(R.id.btnToggleDone)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskVH {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_task, parent, false)
         return TaskVH(v)
-
     }
 
-    override fun onBindViewHolder(holder: TaskVH, position: Int) {
-        val task = items[position]
-        holder.tvName.text = task.name
-        holder.tvDesc.text = task.description
+    override fun onBindViewHolder(h: TaskVH, position: Int) {
+        val t = items[position]
+        h.tvTitle.text = t.title
+        h.tvDesc.text = t.description
+        h.tvStatus.text = if (t.isDone) "Status: Concluída" else "Status: Pendente"
+        h.btnToggle.text = if (t.isDone) "Desfazer" else "Concluir"
 
-        // visual de concluída: tachado
-        holder.tvName.paintFlags =
-            if (task.done) holder.tvName.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-            else holder.tvName.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        // Estilo riscado quando concluída
+        h.tvTitle.paintFlags =
+            if (t.isDone) h.tvTitle.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            else h.tvTitle.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
 
-        holder.tvDesc.paintFlags =
-            if (task.done) holder.tvDesc.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-            else holder.tvDesc.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-
-        holder.btnDone.text = if (task.done) "Concluída" else "Concluir"
-
-        holder.btnDone.setOnClickListener {
-            onToggleDone(task, holder.adapterPosition)
-        }
+        h.btnToggle.setOnClickListener { onToggle(t, position) }
     }
 
     override fun getItemCount(): Int = items.size
 
-    fun add(task: Task) {
-        items.add(task)
-        notifyItemInserted(items.lastIndex)
+    fun addTask(t: Task) {
+        items.add(t)
+        notifyItemInserted(items.size - 1)
     }
 
-    fun notifyChangedAt(pos: Int) {
-        if (pos in items.indices) notifyItemChanged(pos)
+    fun updateAt(position: Int) {
+        notifyItemChanged(position)
     }
 }
